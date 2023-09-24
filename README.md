@@ -36,7 +36,7 @@ might help with the notation for mathematical expressions.
 
 This algorithm ends when n <= 1, and it returns nothing:
 
-$T(n) = 0$ if n <= 1
+$T(n) = 1$ if n <= 1
 
 Otherwise, this algorithm calls itself three different times, each with 1/3 the size of $n$.  There is also a loop in each run that executes $n^2$ times, with a loop inside that executes n times, with a loop inside that executes $n^2$ times.  Together, it runs $n^5$ iterations.  All that can be wriiten and solved as this:
 
@@ -47,6 +47,7 @@ $T(n) = 3T(n / 3) + n^5$ if n > 1
      = $3^iT(n / 3^i) + in^5$  
      Let $i = log_3(n)$  
      = $n * T(n / n) + n^5log(n)$  
-     = $n * 0 + n^5log(n)$  
+     = $n * 1 + n^5log(n)$  
+     = $n + n^5log(n)$  
      = $n^5log(n)$
 
