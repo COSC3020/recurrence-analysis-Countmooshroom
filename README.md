@@ -38,12 +38,15 @@ This algorithm ends when n <= 1, and it returns nothing:
 
 $T(n) = 1$ if n <= 1
 
-Otherwise, this algorithm calls itself three different times, each with 1/3 the size of $n$.  There is also a loop in each run that executes $n^2$ times, with a loop inside that executes n times, with a loop inside that executes $n^2$ times.  Together, it runs $n^5$ iterations.  All that can be wriiten and solved as this:
+Otherwise, this algorithm calls itself three different times, each with 1/3 the size of $n$.  There is also a loop in each run that executes $n^2$ times, with a loop inside that executes n times, with a loop inside that executes $n^2$ times.  Together, it runs $n^5$ iterations.  All that can be written and solved as this:
 
 $T(n) = 3T(n / 3) + n^5$ if n > 1  
-     = $3(3T(n / 9) + n^5) + n^5$  
-     = $9T(n / 9) + 2n^5$  
-     = $27T(n / 27) + 3n^5$  
+     = $3(3T(n / 9) + (n/3)^5) + n^5$  
+     = $9T(n / 9) + (1/3^5)n^5 + n^5$  
+     = $27T(n / 27) + (1/9^5)n^5 + (1/3^5)n^5 + n^5$  
+     Let c = some constant factor that doesn't really matter in the end  
+     = $27T(n / 27) + cn^5$  
+     = $27T(n / 27) + n^5$  
      = $3^iT(n / 3^i) + in^5$  
      Let $i = log_3(n)$  
      = $n * T(n / n) + n^5log(n)$  
