@@ -47,10 +47,10 @@ $T(n) = 3T(n / 3) + n^5$ if n > 1
      Let c = some constant factor that doesn't really matter in the end  
      = $27T(n / 27) + cn^5$  
      = $27T(n / 27) + n^5$  
-     = $3^iT(n / 3^i) + in^5$  
+     = $3^iT(n / 3^i) + n^5$  
      Let $i = log_3(n)$  
-     = $n * T(n / n) + n^5log(n)$  
-     = $n * 1 + n^5log(n)$  
-     = $n + n^5log(n)$  
-     = $n^5log(n)$
+     = $n * T(n / n) + n^5$  
+     = $n * 1 + n^5$  
+     = $n + n^5$  
+     = $n^5$
 
