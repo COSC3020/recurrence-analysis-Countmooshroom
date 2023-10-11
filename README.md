@@ -31,3 +31,38 @@ function mystery(n) {
 Add your answer to this markdown file. [This
 page](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)
 might help with the notation for mathematical expressions.
+
+# Answer
+
+This algorithm ends when n <= 1, and it returns nothing:
+
+$T(n) = 1$ if n <= 1
+
+Otherwise, this algorithm calls itself three different times, each with 1/3 the size of $n$.  There is also a loop in each run that executes $n^2$ times, with a loop inside that executes n times, with a loop inside that executes $n^2$ times.  Together, it runs $n^5$ iterations.  All that can be written and solved as this:
+
+$T(n) = 3T(\frac{n}{3}) + n^5$ if n > 1
+
+= $3(3T(\frac{n}{9}) + (\frac{n}{3})^5) + n^5$
+     
+= $9T(\frac{n}{9}) + (\frac{3}{3^5})n^5 + n^5$
+     
+= $27T(\frac{n}{27}) + (\frac{9}{9^5})n^5 + (\frac{3}{3^5})n^5 + n^5$
+ 
+= $27T(\frac{n}{27}) + (\frac{9}{9^5} + \frac{3}{3^5} + \frac{1}{1^5})n^5$
+
+= $27T(\frac{n}{27}) + (\frac{1}{9^4} + \frac{1}{3^4} + \frac{1}{1^4})n^5$
+
+= $3^iT(\frac{n}{3^i}) + (\sum\limits_{j=1}^{i} \frac{1}{j^4})n^5$
+
+Let $i = log_3n$
+
+= $n * T(\frac{n}{n}) + (\sum\limits_{j=1}^{log_3n} \frac{1}{j^4})n^5$
+
+= $n * 1 + n^5$
+
+= $n + n^5$
+
+= $n^5$
+
+The time complexity is $\Theta(n^5)$
+
